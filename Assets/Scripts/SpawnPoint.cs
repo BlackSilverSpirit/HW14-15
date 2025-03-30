@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    private Coin _coin;
-    private Arrow _arrow;
-    private Barrel _barrel;
+    private ShootItem _coin;
+    private SpeedItem _arrow;
+    private HealthItem _barrel;
 
     public Vector3 Position => transform.position;
 
@@ -14,13 +14,13 @@ public class SpawnPoint : MonoBehaviour
     {
         switch (obj)
         {
-            case Coin coin:
+            case ShootItem coin:
                 _coin = coin;
                 break;
-            case Arrow arrow:
+            case SpeedItem arrow:
                 _arrow = arrow;
                 break;
-            case Barrel barrel:
+            case HealthItem barrel:
                 _barrel = barrel;
                 break;
             default:

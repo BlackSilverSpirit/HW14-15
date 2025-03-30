@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinShoot : MonoBehaviour
+public class Shooting : MonoBehaviour
 {
     private float _speed;
     private float _lifetime;

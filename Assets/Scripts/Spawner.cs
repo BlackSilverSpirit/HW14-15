@@ -8,9 +8,9 @@ public class Spawner : MonoBehaviour
     [SerializeField] private List<SpawnPoint> _spawnPoints;
     [SerializeField] private float _cooldown;
 
-    [SerializeField] private List<Coin> _coinPrefabs;
-    [SerializeField] private List<Arrow> _arrowPrefabs;
-    [SerializeField] private List<Barrel> _barrelPrefabs;
+    [SerializeField] private List<ShootItem> _shotingItemPrefabs;
+    [SerializeField] private List<SpeedItem> _speedItemPrefabs;
+    [SerializeField] private List<HealthItem> _healthItemPrefabs;
 
     private float _timer;
 
@@ -39,19 +39,19 @@ public class Spawner : MonoBehaviour
 
         int randomType = Random.Range(0, 3);
 
-        if (randomType == 0 && _coinPrefabs.Count > 0)
+        if (randomType == 0 && _shotingItemPrefabs.Count > 0)
         {
-            Coin coin = Instantiate(_coinPrefabs[Random.Range(0, _coinPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
+            ShootItem coin = Instantiate(_shotingItemPrefabs[Random.Range(0, _shotingItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
             spawnPoint.Occupy(coin);
         }
-        else if (randomType == 1 && _arrowPrefabs.Count > 0)
+        else if (randomType == 1 && _speedItemPrefabs.Count > 0)
         {
-            Barrel barrel = Instantiate(_barrelPrefabs[Random.Range(0, _barrelPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
+            HealthItem barrel = Instantiate(_healthItemPrefabs[Random.Range(0, _healthItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
             spawnPoint.Occupy(barrel);
         }
-        else if (_barrelPrefabs.Count > 0)
+        else if (_healthItemPrefabs.Count > 0)
         {
-            Arrow arrow = Instantiate(_arrowPrefabs[Random.Range(0, _coinPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
+            SpeedItem arrow = Instantiate(_speedItemPrefabs[Random.Range(0, _shotingItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
             spawnPoint.Occupy(arrow);
         }
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FollowEffect : MonoBehaviour
 {
-    
     [SerializeField] private Vector3 _offset;
 
     private Transform _target;
@@ -15,7 +14,6 @@ public class FollowEffect : MonoBehaviour
 
         _target = hero.transform;
     }
-
 
     private void Update()
     {

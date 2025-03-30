@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : CollectableItem
+public class SpeedItem : CollectableItem
 {
     [SerializeField] private float _destroyTime;
     [SerializeField] private float speedMultiplier = 1.2f;
@@ -14,7 +12,6 @@ public class Arrow : CollectableItem
 
     protected override void ApplyBonus()
     {
-
         Hero hero = FindObjectOfType<Hero>();
         if (hero != null)
         {

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public abstract class CollectableItem : MonoBehaviour
 {
-
     [SerializeField] private GameObject _collectEffect;
     [SerializeField] private GameObject _useEffectPrefab;
     [SerializeField] private float _effectDuration = 2f;
@@ -14,9 +13,10 @@ public abstract class CollectableItem : MonoBehaviour
 
     private Transform _targetParent;
     private Rigidbody _rigidbody;
+
     public bool IsPickedUp { get; private set; }
 
-    public float _timer;
+    private float _timer;
 
     private void Awake()
     {
@@ -31,17 +31,14 @@ public abstract class CollectableItem : MonoBehaviour
         GameObject effect = Instantiate(_collectEffect, transform.position, Quaternion.identity);
         Destroy(effect, _effectDuration);
 
-        // Настраиваем физику
         if (_rigidbody != null)
         {
             _rigidbody.isKinematic = true;
             _rigidbody.velocity = Vector3.zero;
         }
 
-        // Отключаем коллайдер
         GetComponent<Collider>().enabled = false;
 
-        // Делаем объект дочерним
         transform.SetParent(_targetParent);
     }
 
@@ -53,25 +50,22 @@ public abstract class CollectableItem : MonoBehaviour
             Destroy(effect, _effectDuration);
         }
 
-        ApplyBonus(); // Абстрактный метод для реализации
+        ApplyBonus();
 
         Destroy(gameObject);
     }
 
-    protected abstract void ApplyBonus(); // Реализуем в наследниках
+    protected abstract void ApplyBonus(); 
 
     protected virtual void FixedUpdate()
     {
         if (IsPickedUp)
         {
-            // Плавное перемещение к целевой позиции
             Vector3 targetPosition = holdOffset;
 
             transform.localPosition = Vector3.Lerp(transform.localPosition, targetPosition, Time.deltaTime);
         }
     }
-
-
 
     public void DestroyObject(float _destroyTime)
     {
@@ -84,5 +78,4 @@ public abstract class CollectableItem : MonoBehaviour
             }
         }
     }
-
 }

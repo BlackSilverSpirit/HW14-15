@@ -1,8 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Barrel : CollectableItem
+public class HealthItem : CollectableItem
 {
     [SerializeField] private float _destroyTime = 10f;
 
