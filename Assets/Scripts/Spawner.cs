@@ -4,13 +4,20 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-
+    [Header("Spawn Settings")]
     [SerializeField] private List<SpawnPoint> _spawnPoints;
     [SerializeField] private float _cooldown;
 
-    [SerializeField] private List<ShootItem> _shotingItemPrefabs;
-    [SerializeField] private List<SpeedItem> _speedItemPrefabs;
-    [SerializeField] private List<HealthItem> _healthItemPrefabs;
+    [Header("Item Prefabs")]
+    [SerializeField] private ShootItem _shotingItemPrefabs;
+    [SerializeField] private SpeedItem _speedItemPrefabs;
+    [SerializeField] private HealthItem _healthItemPrefabs;
+
+    [Header("Spawn Probabilities")]
+    [SerializeField][Range(0, 1)] private float _shootingItemChance = 0.4f;
+    [SerializeField][Range(0, 1)] private float _healthItemChance = 0.3f;
+    [SerializeField][Range(0, 1)] private float _speedItemChance = 0.3f;
+
 
     private float _timer;
 
@@ -37,24 +44,47 @@ public class Spawner : MonoBehaviour
 
         SpawnPoint spawnPoint = emptyPoints[Random.Range(0, emptyPoints.Count)];
 
-        int randomType = Random.Range(0, 3);
+        float randomValue = Random.Range(0f, 1f);
+        float cumulative = 0f;
 
-        if (randomType == 0 && _shotingItemPrefabs.Count > 0)
+        cumulative += _shootingItemChance;
+        if (randomValue <= cumulative)
         {
-            ShootItem coin = Instantiate(_shotingItemPrefabs[Random.Range(0, _shotingItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
-            spawnPoint.Occupy(coin);
+            SpawnShootItem(spawnPoint);
+            return;
         }
-        else if (randomType == 1 && _speedItemPrefabs.Count > 0)
+        cumulative += _healthItemChance;
+        if (randomValue <= cumulative)
         {
-            HealthItem barrel = Instantiate(_healthItemPrefabs[Random.Range(0, _healthItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
-            spawnPoint.Occupy(barrel);
+            SpawnHealthItem(spawnPoint);
+            return;
         }
-        else if (_healthItemPrefabs.Count > 0)
+        else
         {
-            SpeedItem arrow = Instantiate(_speedItemPrefabs[Random.Range(0, _shotingItemPrefabs.Count)], spawnPoint.Position, Quaternion.identity);
-            spawnPoint.Occupy(arrow);
+            SpawnSpeedItem(spawnPoint);
+            return;
         }
     }
+
+
+    private void SpawnShootItem(SpawnPoint spawnPoint)
+    {
+        ShootItem coin = Instantiate(_shotingItemPrefabs, spawnPoint.Position, Quaternion.identity);
+        spawnPoint.Occupy(coin);
+    }
+
+    private void SpawnHealthItem(SpawnPoint spawnPoint)
+    {
+        HealthItem barrel = Instantiate(_healthItemPrefabs, spawnPoint.Position, Quaternion.identity);
+        spawnPoint.Occupy(barrel);
+    }
+
+    private void SpawnSpeedItem(SpawnPoint spawnPoint)
+    {
+        SpeedItem arrow = Instantiate(_speedItemPrefabs, spawnPoint.Position, Quaternion.identity);
+        spawnPoint.Occupy(arrow);
+    }
+
 
     private List<SpawnPoint> GetEmptyPoints()
     {

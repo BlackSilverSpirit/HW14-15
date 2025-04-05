@@ -120,11 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fe3e8647fe9b074a85bce706bbd8c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectEffect: {fileID: 2385136376103924588, guid: 182d6b690eed16945982b1e03fa675a3, type: 3}
-  _useEffectPrefab: {fileID: 4487062474137041625, guid: 0672a1dbe0c458b43a7dd1bb70e2c4b4, type: 3}
-  _effectDuration: 2
-  holdOffset: {x: 0, y: 0.5, z: -1.5}
-  _timer: 0
+  _collectEffect: {fileID: 1285148946356008173, guid: 182d6b690eed16945982b1e03fa675a3, type: 3}
+  _useEffectPrefab: {fileID: 8404602336734772235, guid: 0672a1dbe0c458b43a7dd1bb70e2c4b4, type: 3}
   _destroyTime: 10
   speedMultiplier: 1.2
 --- !u!114 &2985080009932031971

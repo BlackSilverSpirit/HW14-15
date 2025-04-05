@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 291540755627274400}
   - component: {fileID: 8375469140851913482}
   - component: {fileID: -5105140189257450536}
+  - component: {fileID: -6512356038539024102}
   m_Layer: 0
   m_Name: CFXR Electrified 3
   m_TagString: Untagged
@@ -4912,7 +4913,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2229407245988669298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9205bc1bbacc90040a998067b5643d16, type: 3}
   m_Name: 
@@ -5036,6 +5037,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _offset: {x: 0, y: 0, z: 0}
+--- !u!114 &-6512356038539024102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2229407245988669298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc430993b4234dc429c81aa1ad48a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3278227806952545453
 GameObject:
   m_ObjectHideFlags: 0

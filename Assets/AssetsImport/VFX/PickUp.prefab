@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3261407971631811986}
   - component: {fileID: 3902003716871962221}
   - component: {fileID: 5430032546637601904}
+  - component: {fileID: 1285148946356008173}
   m_Layer: 0
   m_Name: PickUp
   m_TagString: Untagged
@@ -4723,6 +4724,18 @@ MonoBehaviour:
     shakesDelay: 0
   animatedLights: []
   fadeOutReference: {fileID: 0}
+--- !u!114 &1285148946356008173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2385136376103924588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc430993b4234dc429c81aa1ad48a043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7393734072707433204
 GameObject:
   m_ObjectHideFlags: 0

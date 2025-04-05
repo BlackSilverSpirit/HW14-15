@@ -980,11 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 583db08ebd4b4924f9836b56f133a7e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _collectEffect: {fileID: 2385136376103924588, guid: 182d6b690eed16945982b1e03fa675a3, type: 3}
-  _useEffectPrefab: {fileID: 2229407245988669298, guid: 9d1448c0966a8f74d8209b66824be23e, type: 3}
-  _effectDuration: 2
-  holdOffset: {x: 0, y: 0.5, z: -3}
-  _timer: 0
+  _collectEffect: {fileID: 1285148946356008173, guid: 182d6b690eed16945982b1e03fa675a3, type: 3}
+  _useEffectPrefab: {fileID: -6512356038539024102, guid: 9d1448c0966a8f74d8209b66824be23e, type: 3}
   _destroyTime: 10
   _shootItemPrefab: {fileID: -344960066963894712, guid: d7d0637a503bf0a48a35a14a32f58163, type: 3}
   _shootItemSpeed: 10

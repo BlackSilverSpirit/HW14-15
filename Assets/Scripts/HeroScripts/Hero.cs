@@ -58,16 +58,4 @@ public class Hero : MonoBehaviour
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, lookRotation, step);
     }
-
-    public void OffCharacter()
-    {
-        gameObject.SetActive(false);
-    }
-
-    public void ActiveCharacter(Vector3 newPosition)
-    {
-        gameObject.SetActive(true);
-
-        transform.position = newPosition;
-    }
 }
