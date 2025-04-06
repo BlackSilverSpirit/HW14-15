@@ -6,13 +6,13 @@ public class ShootItem : Item
     [SerializeField] private float _shootItemSpeed = 10f;
     [SerializeField] private float _shootItemLifetime = 3f;
 
-    protected override void ApplyBonus()
+    protected override void ApplyBonus(GameObject owner)
     {
-        if (base.Hero != null && _shootItemPrefab != null)
+        if (owner.GetComponent<Hero>() != null && _shootItemPrefab != null)
         {
-            Vector3 spawnPosition = base.Hero.transform.position + base.Hero.transform.forward;
+            Vector3 spawnPosition = owner.GetComponent<Hero>().transform.position + owner.GetComponent<Hero>().transform.forward;
 
-            Shooting newProjectile = Instantiate(_shootItemPrefab, spawnPosition, base.Hero.transform.rotation);
+            Shooting newProjectile = Instantiate(_shootItemPrefab, spawnPosition, owner.GetComponent<Hero>().transform.rotation);
 
             newProjectile.Initialize(_shootItemSpeed, _shootItemLifetime);
 

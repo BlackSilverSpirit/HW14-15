@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -15,10 +13,10 @@ public class Inventory : MonoBehaviour
         item.Tied(holdPoint);
     }
 
-    public void UseCurrentItem()
+    public void UseCurrentItem(GameObject owner)
     {
         CurrentItem.PlayUseEffects();
 
-        CurrentItem.ActivateAndConsume();
+        CurrentItem.ActivateAndConsume(owner);
     }
 }

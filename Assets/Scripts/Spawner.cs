@@ -18,7 +18,6 @@ public class Spawner : MonoBehaviour
     [SerializeField][Range(0, 1)] private float _healthItemChance = 0.3f;
     [SerializeField][Range(0, 1)] private float _speedItemChance = 0.3f;
 
-
     private float _timer;
 
     private void Update()
@@ -66,7 +65,6 @@ public class Spawner : MonoBehaviour
         }
     }
 
-
     private void SpawnShootItem(SpawnPoint spawnPoint)
     {
         ShootItem coin = Instantiate(_shotingItemPrefabs, spawnPoint.Position, Quaternion.identity);
@@ -84,7 +82,6 @@ public class Spawner : MonoBehaviour
         SpeedItem arrow = Instantiate(_speedItemPrefabs, spawnPoint.Position, Quaternion.identity);
         spawnPoint.Occupy(arrow);
     }
-
 
     private List<SpawnPoint> GetEmptyPoints()
     {

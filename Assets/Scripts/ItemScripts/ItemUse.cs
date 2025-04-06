@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ItemUse : MonoBehaviour
 {
+    [SerializeField] GameObject _owner;
+
     private KeyCode _useKey = KeyCode.F;
 
     private Inventory _inventory;
@@ -17,7 +19,7 @@ public class ItemUse : MonoBehaviour
     {
         if (Input.GetKeyDown(_useKey))
         {
-            _inventory.UseCurrentItem();
+            _inventory.UseCurrentItem(_owner);
         }
     }
 }

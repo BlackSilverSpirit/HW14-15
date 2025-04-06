@@ -12,21 +12,16 @@ public abstract class Item : MonoBehaviour
 
     [SerializeField] private float _destroyTime;
 
-
     private Transform _targetParent;
     private Collider _collider;
 
     private float _timer;
 
-    private Hero _hero;
-    public Hero Hero => _hero;
-    protected Health HeroHealth { get; private set; }
-
     public bool IsPickedUp { get; private set; }
 
     private void Awake()
     {
-        CachePlayerReferences();
+        _collider = GetComponent<Collider>();
     }
 
     protected virtual void Update()
@@ -41,20 +36,9 @@ public abstract class Item : MonoBehaviour
         DestroyObject(_destroyTime);
     }
 
-    private void CachePlayerReferences()
+    public void ActivateAndConsume(GameObject owner)
     {
-        _collider = GetComponent<Collider>();
-
-        GameObject hero = GameObject.FindGameObjectWithTag("Player");
-
-        _hero = hero.GetComponent<Hero>();
-
-        HeroHealth = _hero.GetComponent<Health>();
-    }
-
-    public void ActivateAndConsume()
-    {
-        ApplyBonus();
+        ApplyBonus(owner);
         Destroy(gameObject);
     }
 
@@ -92,5 +76,5 @@ public abstract class Item : MonoBehaviour
         EffectCreateScripts effect = Instantiate(_collectEffect, transform.position, Quaternion.identity);
     }
     
-    protected abstract void ApplyBonus();
+    protected abstract void ApplyBonus(GameObject owner);
 }
